@@ -1,5 +1,6 @@
 import { Router } from "https://deno.land/x/opine@master/mod.ts";
 import { getUsers, createUser } from "../services/user/get-user.ts";
+import { IUser } from "../models/user.ts";
 
 const router = Router();
 
@@ -14,7 +15,7 @@ router.get("/users", async (req, res) => {
 });
 
 router.post("/users/create", async (req, res) => {
-  const user = req.body;
+  const user: any = req.body;
   await createUser(user);
 });
 
